@@ -9,28 +9,20 @@
 		"filePath": "/Users/thisishkf/logs/"
 	},
 	"Currency": {
-		"api": [
-			{
-				"site": "openexchangerates.org",
+		"api": {
+			"openexchangerates": {
 				"uri": "https://openexchangerates.org/api/",
 				"lastest": "latest.json",
-				"currencies": "currencies.json",
 				"historical": "historical/YYYY-MM-DD.json",
-				"API_KEY": [
-					"972b78c45db448b29419fc73dd93a840"
-				]
+				"API_KEY": "972b78c45db448b29419fc73dd93a840"
 			},
-			{
-				"site": "fixer.io",
+			"fixer": {
 				"uri": "http://data.fixer.io/api/",
 				"lastest": "latest",
-				"currencies": "currencies.json",
 				"historical": "YYYY-MM-DD",
-				"API_KEY": [
-					"de433945d698a08edc26e094be5604a2"
-				]
+				"API_KEY": "de433945d698a08edc26e094be5604a2"
 			}
-		]
+		}
 	},
 	"MongoDB": {
 		"account": "aftership",

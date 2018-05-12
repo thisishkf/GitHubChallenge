@@ -1,4 +1,4 @@
-const _getmodel = function (title = "", data = null, script = []) {
+const _getmodel = function (title = "", script = []) {
 	let model = {
 		head: {
 			meta: {
@@ -10,12 +10,10 @@ const _getmodel = function (title = "", data = null, script = []) {
 		},
 		menu: {
 			Currency: [
-				{ title: 'Rates', uri: '/currency/index', status: "active" },
+				{ title: 'Rates', uri: '/currency/', status: "active" },
 			]
 		},
-		main: {
-			data : data
-		},
+		main: {},
 		foot: { copyright: 'Copyright © 2018 Thisishkf. All rights reserved.' }
 	};
 	return model;
