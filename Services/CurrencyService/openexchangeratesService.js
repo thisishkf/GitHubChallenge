@@ -58,7 +58,7 @@ const makeModel = function (from, to, data) {
         let row = {};
         row.to = to;
         row.ts = data.timestamp;
-        row.rate = data.rates[to];
+        row.rate = ( to in data.rates) ? data.rates[to] : "Error, target Currency Code is invalid";
         row.from = from;
         result.push(row);
     } else {
