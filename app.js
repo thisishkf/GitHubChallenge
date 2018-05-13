@@ -27,8 +27,8 @@ app.use('/static', express.static(__dirname + '/public/static'));
 
 // use controllers
 
-app.use('', require(__dirname + '/controller/IndexController'));
-app.use('/currency', require(__dirname + '/controller/CurrencyController'));
+app.use('', require(__dirname + '/Controller/IndexController'));
+app.use('/currency', require(__dirname + '/Controller/CurrencyController'));
 
 const port = process.env.PORT || config.PORT;
 server.listen(port, function () {
