@@ -7,7 +7,7 @@ Submission Date     |   2018-05-14
 Technical spec      |   Back-end track
 Language            |   Node.js
 Problem             |   **Exchange Rate**
-Production Link     |   //TODO
+Production Link     |   http://52.90.250.226:9999/
 
 ### Requirement: 
 1. Create a **service** that gives the 
@@ -151,7 +151,7 @@ Currency codes can be lookup on https://github.com/thisishkf/GitHubChallenge/blo
 There is also `allCurrency` as an extra option for `to` to retrieve all currency exchange rate base on `from`.
 
 ##### Example
-/currency/api/current/USD/HKD //TODO
+http://52.90.250.226:9999/currency/api/current/USD/HKD
 
 **Result**
 ```
@@ -174,7 +174,7 @@ Currency codes can be lookup on https://github.com/thisishkf/GitHubChallenge/blo
 There is also `allCurrency` as an extra option for `to` to retrieve all currency exchange rate base on `from`.
 
 ##### Example
-/currency/api/historical/USD/GBP/2018-04-04 //TODO
+http://52.90.250.226:9999/currency/api/historical/USD/GBP/2018-04-04 
 
 **Result**
 ```
