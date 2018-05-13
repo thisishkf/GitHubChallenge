@@ -81,7 +81,7 @@ There is limited UX provided.
 - http      :   Use for making http request
 - https     :   Use for making https request
 - url       :   Use for parsing URLs
-
+- child_process : Use for Monitor
 ## TODO
 1. Backup currency-data provider. <br/>
 `CurrencyService.js` should be able to switch currency-data provider when one is down. <br/>
@@ -153,12 +153,13 @@ There is also `allCurrency` as an extra option for `to` to retrieve all currency
 ```
 
 #### Errors
-- If Country Code is provided incorrectly, the response data will give an error message `Error, target Currency Code is invalid` in `res.data.rate`
+- If Country Code is provided incorrectly, the response data will give an error message.
 ```
-    [{"to":"qwe","ts":1522886399,"rate":"Error, target Currency Code is invalid","from":"USD"}]
+    "Target Currency Code is invalid"
 ```
 
-----
-
-- If Historial Date in provided incorrectly. <br/>
+- If Historial Date is provided incorrectly, the response data will give an error message. <br/>
 For example, it is not the Date before today or it is not is YYYY-MM-DD. <br/>
+```
+    "Historial Date is invlaid"
+```

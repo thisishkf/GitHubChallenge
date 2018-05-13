@@ -42,7 +42,7 @@ const _getHistorialRate = function (from, to, date, callback = function () { }) 
             callback(makeModel(from, to, data));
         });
     }else{
-        callback({err : "Historial Date is invlaid"});
+        callback({err : "Historial Date is invalid"});
     }
 }
 
