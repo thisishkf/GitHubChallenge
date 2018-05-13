@@ -29,5 +29,10 @@
 		"password": "after123ship",
 		"mongoUri": "ds011238.mlab.com:11238",
 		"database": "nosqldb"
+	},
+	"process": {
+		"rootjs": "app.js",
+		"timeout": 3000,
+		"max_restart": 100
 	}
 }

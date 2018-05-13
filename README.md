@@ -37,7 +37,32 @@ i.e. Please use **USD** as base currency for testing and dont use heavy stress t
 ### Coding level
 #### Architecture
 ```
-
+    GitHubChallenge/
+    ├── Controller
+    ├── Services
+    │   └── CurrencyService
+    ├── lib
+    │   ├── HTTPService
+    │   ├── Helper
+    │   ├── Logger
+    │   └── MongoService
+    ├── node_modules
+    ├── public
+    │   ├── static
+    │   │   ├── css
+    │   │   ├── images
+    │   │   ├── js
+    │   │   │   └── currency
+    │   │   └── vendor
+    │   └── views
+    │       ├── common
+    │       │   └── head
+    │       ├── currency
+    │       └── index
+    └── test
+    └── config.json
+    └── app.js
+    └── monitor.js
 ```
 
 
@@ -133,4 +158,7 @@ There is also `allCurrency` as an extra option for `to` to retrieve all currency
     [{"to":"qwe","ts":1522886399,"rate":"Error, target Currency Code is invalid","from":"USD"}]
 ```
 
-- If 
+----
+
+- If Historial Date in provided incorrectly. <br/>
+For example, it is not the Date before today or it is not is YYYY-MM-DD. <br/>
