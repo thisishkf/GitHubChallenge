@@ -67,8 +67,9 @@ For API, users can ask for
     - Helper : responsible for making ajax response, making page reponse.
     - Logger : responsible for logging into console and file.
 - public : Contains all prsentation Layer elements.
-    - views : Despite of common, each module shuold contains of a individual folder. i.e. index and currency. 
+    - views : Despite of common, each module shuold contains of a individual folder. i.e. `/index` and `/currency`. 
     - static/js : If a page is contain generic javascript, a `.js` file is put here under the module name.
+- Services : Generic modules under business logics. each module shuold contains of a individual folder. i.e. `/CurrencyService`.
 
 #### UX
 There is limited UX provided.
