@@ -1,6 +1,6 @@
 ## Project Background
 
-Key                 |   Value
+
 ------------------- | ---------------------
 Author              |   Sam Ho <hkf1113@gmail.com>
 Submission Date     |   2018-05-14
