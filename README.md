@@ -28,17 +28,13 @@ For API, users can ask for
 - (2) historical exchange rate    at  `/currency/api/historical/:from/:to/:date`
 - Please reference to `API Guide` section
 
-## Limitation
-Free currency-data providers only provide limited service. <br/>
-For openexchangerates.org, base currency only support **USD** for free API. <br/>
-Also, it is limited to 1,000 calls for a account. <br/>
-i.e. Please use **USD** as base currency for testing and dont use heavy stress test.
-
 ### Coding level
 #### Architecture
 ```
     GitHubChallenge/
     ├── Controller
+    │   └── CurrencyController.js
+    │   └── IndexController.js
     ├── Services
     │   └── CurrencyService
     ├── lib
@@ -64,7 +60,15 @@ i.e. Please use **USD** as base currency for testing and dont use heavy stress t
     └── app.js
     └── monitor.js
 ```
-
+- Controller : Contains all routing activies. Router with different prefix will be seperated into different `.js` file.
+- lib : Contains all self-written modules where those modules will/does not published to NPM.
+    - HTTPSerive : responsible for making `GET` and `POST` request in HTTP or HTTPS.
+    - MongoService : respsible for Mongo Databse Operations.
+    - Helper : responsible for making ajax response, making page reponse.
+    - Logger : responsible for logging into console and file.
+- public : Contains all prsentation Layer elements.
+    - views : Despite of common, each module shuold contains of a individual folder. i.e. index and currency. 
+    - static/js : If a page is contain generic javascript, a `.js` file is put here under the module name.
 
 #### UX
 There is limited UX provided.
@@ -82,6 +86,23 @@ There is limited UX provided.
 - https     :   Use for making https request
 - url       :   Use for parsing URLs
 - child_process : Use for Monitor
+- mongo     :   Prepare as database (Not used)
+
+##### Other
+- Logger. <br/>
+Logger is included as console logger and logged to file. <br/>
+See lib/Logger.
+- Monitor. <br/> 
+A simple monitor is included. <br/> 
+For personal use, we always use pm2 as it is well developed and widely used. <br/>
+However for some concerns for commercial use, generic monitor is better.
+
+## Limitation
+Free currency-data providers only provide limited service. <br/>
+For openexchangerates.org, base currency only support **USD** for free API. <br/>
+Also, it is limited to 1,000 calls for a account. <br/>
+i.e. Please use **USD** as base currency for testing and dont use heavy stress test.
+
 ## TODO
 1. Backup currency-data provider. <br/>
 `CurrencyService.js` should be able to switch currency-data provider when one is down. <br/>
@@ -93,6 +114,9 @@ const _setService = function (switchService) {
     service = switchService;
 }
 ```
+
+---
+
 2. Saving the use of currency-data API. <br/>
 Node.js Server does not need to call api to currency-data provider to get data.<br/>
 This can save of the use of currency-data API. (Some currency-data charge by number of calls)
@@ -101,6 +125,8 @@ This can save of the use of currency-data API. (Some currency-data charge by num
 Therefore, Node.js Server can run a cronJob <br/>
 (1) to get Latest exchange rate every X mintues and save it into database.<br/>
 (2) to get Historical exchange rate everyday and save it into database.
+
+---
 
 3. Improvement of the use of API service. <br/>
 The API service now is developped as everyone can use. The service can be mis-used by other people beyond the original design. <br/>
@@ -131,6 +157,8 @@ There is also `allCurrency` as an extra option for `to` to retrieve all currency
     [{"to":"HKD","ts":1526220003,"rate":7.8498,"from":"USD"}]
 ```
 
+---
+
 #### Historial exchange rate
 Historial exchange rate can be retrieved by calling `GET /currency/api/current/:from/:date`. <br/>
 
@@ -151,6 +179,8 @@ There is also `allCurrency` as an extra option for `to` to retrieve all currency
 ```
 [{"to":"GBP","ts":1522886399,"rate":0.709832,"from":"USD"}]
 ```
+
+---
 
 #### Errors
 - If Country Code is provided incorrectly, the response data will give an error message.
