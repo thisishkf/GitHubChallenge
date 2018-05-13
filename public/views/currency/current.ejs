@@ -1,16 +1,12 @@
 <div id="currency_index">
 
-    <h3>Currenct Excahnge Rate</h3>
+    <h3>Currenct Exchange Rate</h3>
     <hr/>
 
     <div class="row" id="currency_input">
         <div class="col-lg-3 col-md-4 col-xs-12">From
             <select id="currency-from">
-                <% Object.keys(data).forEach( key => { %>
-                    <option value="<%= key%>">
-                        <%=key%>
-                    </option>
-                    <% });%>
+                <option value="USD">USD</option>
             </select>
         </div>
         <div class="col-lg-1 col-md-1 col-xs-12">
@@ -20,7 +16,7 @@
         <div class="col-lg-3 col-md-4 col-xs-12">
             To
             <select id="currency-to">
-                <option value="all">All</option>
+                <option value="allCurrency">All Currency</option>
                 <% Object.keys(data).forEach( key => { %>
                     <option value="<%= key%>">
                         <%=key%>
@@ -29,12 +25,12 @@
             </select>
         </div>
         <div class="col-lg-2 col-md-2 col-xs-12" style="margin-top: 5px;">
-            <input type="button" class="btn-xs btn-info" value="Search" />
+            <input type="button" id="currency-ask" class="btn-xs btn-info" value="Search" />
         </div>
     </div>
 
     <hr/>
-    <div id="currency_result">
+    <div id="currency_result" >
 
     </div>
 

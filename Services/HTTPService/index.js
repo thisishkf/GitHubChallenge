@@ -6,7 +6,7 @@ const url = require('url');
  * Global constants
  */
 const PROTOCOL_HTTP = "http:";
-const PROTOCOL_HTTPS = "https";
+const PROTOCOL_HTTPS = "https:";
 
 /**
  * @param		{String}	uri

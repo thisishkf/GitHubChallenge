@@ -1,10 +1,15 @@
 <html>
 <%- include('common/head', head); %>
+
 	<body>
 		<%- include('common/menu', menu); %>
+			<div id="loadingDiv" class="ajaxloading">
+				<img src="/static/images/ajax-loading.gif" />
+			</div>
 			<div class="body_container">
 				<%- include('common/main', main); %>
 			</div>
 			<%- include('common/foot', foot); %>
 	</body>
+
 </html>
