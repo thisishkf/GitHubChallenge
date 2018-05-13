@@ -1,24 +1,28 @@
-# Project Background
-## title: Exchange Rate
+## Project Background
 
+Technical spec      |   Back-end track
+Language            |   Node.js
+Problem             |   **Exchange Rate**
 
-# Preparation
+### Requirement: 
+1. Create a **service** that gives the 
+    1. latest exchange rate
+    2. historical exchange rate 
+    for the currency
+2. Please use **three tier network architecture** in this challenge.
 
-## Task Lists
-- [ ] Project Init : System architecture, Functional Requirement
-- [ ] Front-End Init : layout, logic flow, UX
-- [ ] 
-- [ ] Launch To Clound 
+## Solution
+A Node.js application is created providing web-ui, and API service.
 
-# Update Log
+For web-ui, users can ask for 
+> (1) latest exchange rate        at  /currency/current
+> (2) historical exchange rate    at  /currency/historical
 
-Date | Issue | Status
----------------------
-2018-05-12 | Project Init | 
+For API, users can ask for
+> (1) latest exchange rate        at  /api/current/:from/:to
+> (2) historical exchange rate    at  /api/historical/:from/:to/:date
+> Please reference to `API Guide` section
 
+## TODO
 
-First Header | Second Header
------------- | -------------
-  123        | 123
-
-ajax loading
+## API Guide
