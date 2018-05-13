@@ -56,10 +56,6 @@ const testHistorialDate = function (date) {
     let format = /^\d{4}-\d{2}-\d{2}$/.test(date);
     let today = (new Date()).getTime();
     let target = (new Date(date)).getTime();
-    console.log(format);
-    console.log(today);
-    console.log(target);
-    console.log(today > target);
     return today > target && format;
 }
 
