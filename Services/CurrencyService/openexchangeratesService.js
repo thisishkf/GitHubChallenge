@@ -14,10 +14,10 @@ const _getCurrenyRate = function (from, to, callback = function () { }) {
     const api = `${config.uri}${config.lastest}`;
     const params = { app_id: config.API_KEY, base: from };
     httpGet(api, params, function (data) {
-        if(to in data.rates){
+        if (to in data.rates) {
             callback(makeModel(from, to, data));
-        }else{
-            callback({err : "Target Currency Code is invalid"});
+        } else {
+            callback({ err: "Target Currency Code is invalid" });
         }
     });
 }
@@ -35,14 +35,14 @@ const _getCurrenyRate = function (from, to, callback = function () { }) {
  */
 const _getHistorialRate = function (from, to, date, callback = function () { }) {
     Logger.debug(`Getting current Exchange Rate from ${from} to ${to} at ${date}`);
-    if(testHistorialDate()){
+    if (testHistorialDate(date)) {
         var api = `${config.uri}${config.historical}`.replace("YYYY-MM-DD", date);
         const params = { app_id: config.API_KEY, base: from };
         httpGet(api, params, function (data) {
             callback(makeModel(from, to, data));
         });
-    }else{
-        callback({err : "Historial Date is invalid"});
+    } else {
+        callback({ err: "Historial Date is invalid" });
     }
 }
 
@@ -51,10 +51,15 @@ const _getHistorialRate = function (from, to, date, callback = function () { }) 
  * @param {string}
  * @return {boolean} If historial date is valid
  */
-const testHistorialDate = function(date){
+const testHistorialDate = function (date) {
+    console.log(date);
     let format = /^\d{4}-\d{2}-\d{2}$/.test(date);
     let today = (new Date()).getTime();
     let target = (new Date(date)).getTime();
+    console.log(format);
+    console.log(today);
+    console.log(target);
+    console.log(today > target);
     return today > target && format;
 }
 
