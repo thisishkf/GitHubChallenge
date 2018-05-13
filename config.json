@@ -6,7 +6,7 @@
 			"ACCESS": "l.api.{DATE}.access.log",
 			"ERROR": "l.api.{DATE}.error.log"
 		},
-		"filePath": "/Users/thisishkf/log/"
+		"filePath": "./logs/"
 	},
 	"Currency": {
 		"api": {
