@@ -1,5 +1,5 @@
-const config = require('../../config.json').fixer.api.openexchangerates;
-const { httpGet, httpPost } = require('../HTTPService');
+const config = require(__dirnam + '../../config.json').fixer.api.openexchangerates;
+const { httpGet, httpPost } = require(__dirnam + '../../lib/HTTPService');
 
 const _getCurrenyRate = function (from, to, callback = function () { }) {
     // TODO: backup api
@@ -18,5 +18,5 @@ const _getHistorialRate = function (from, to, year, month, date, callback = func
 
 module.exports = {
     getCurrenyRate: _getCurrenyRate,
-    getHistorialRate : _getHistorialRate
+    getHistorialRate: _getHistorialRate
 }

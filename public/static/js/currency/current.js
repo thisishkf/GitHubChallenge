@@ -2,7 +2,6 @@ $(document).ready(function () {
 
     $('#currency-ask').on('click', function (event) {
         event.preventDefault();
-        console.log("!!");
         const api = '/currency/ajax/current/#FROM#/#TO#';
         const from = $('#currency-from').val();
         const to = $('#currency-to').val();
@@ -11,12 +10,11 @@ $(document).ready(function () {
             method: 'GET',
             dataType: 'json',
             beforeSend() {
-                console.log("send");
-                console.log(`${from} -> ${to}`);
+                $('#currency-ask').prop("disabled", true);
+                $('#loadingDiv').show();
             },
             success(res) {
                 if (res.r == true) {
-                    console.log(res);
                     showResult(res.data);
                 }
             },
@@ -24,7 +22,8 @@ $(document).ready(function () {
                 console.log(e);
             },
             complete() {
-                console.log('end');
+                $('#currency-ask').prop("disabled", false);
+                $('#loadingDiv').hide();
             }
         });
     });

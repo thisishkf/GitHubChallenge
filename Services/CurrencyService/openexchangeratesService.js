@@ -1,6 +1,6 @@
-const config = require('../../config.json').Currency.api.openexchangerates;
-const { httpGet, httpPost } = require('../HTTPService');
-const Logger = require('../Logger');
+const config = require(__dirname + '/../../config.json').Currency.api.openexchangerates;
+const { httpGet, httpPost } = require(__dirname + '/../../lib/HTTPService');
+const Logger = require(__dirname + '/../../lib/Logger');
 
 /**
  * Getting Current Exchange Rate by calling api of openexchangerates.org.

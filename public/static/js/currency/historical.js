@@ -12,12 +12,11 @@ $(document).ready(function () {
             method: 'GET',
             dataType: 'json',
             beforeSend() {
-                console.log("send");
-                console.log(`${from} -> ${to} @ ${date}`);
+                $('#currency-ask').prop("disabled", true);
+                $('#loadingDiv').show();
             },
             success(res) {
                 if (res.r == true) {
-                    console.log(res);
                     showResult(date, res.data);
                 }
             },
@@ -25,7 +24,8 @@ $(document).ready(function () {
                 console.log(e);
             },
             complete() {
-                console.log('end');
+                $('#currency-ask').prop("disabled", false);
+                $('#loadingDiv').hide();
             }
         });
     });

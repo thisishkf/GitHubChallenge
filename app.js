@@ -10,12 +10,12 @@ const bodyParser = require('body-parser');
 
 // User Generic Modules
 const config = require('./config');
-const logger = require('./Services/Logger');
-const mongo = require('./Services/MongoService');
+const Logger = require('./lib/Logger');
+const mongo = require('./lib/MongoService');
 
 // use Middle-ware
 app.use(function (req, res, next) {
-	logger.access(req);
+	Logger.access(req);
 	next();
 });
 
@@ -35,10 +35,10 @@ const port = process.env.PORT || config.PORT;
 server.listen(port, function () {
 	mongo.connect()
 	.then(db => {
-		console.log(`Server On Create: listening ${port}`);
+		Logger.info(`Server created: listening ${port}`);
 	})
 	.catch(({err}) => {
-		console.log(err);
+		Logger.error(err);
 	});
 	
 });
