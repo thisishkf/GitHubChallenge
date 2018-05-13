@@ -17,4 +17,4 @@ Date | Issue | Status
 2018-05-12 | Project Init | 
 
 
-> 
+ajax loading

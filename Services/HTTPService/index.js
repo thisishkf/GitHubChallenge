@@ -2,14 +2,12 @@ const http = require('http');
 const https = require('https');
 const url = require('url');
 
-/*
- * Global constants
- */
+// constants
 const PROTOCOL_HTTP = "http:";
 const PROTOCOL_HTTPS = "https:";
 
 /**
- * @param		{String}	uri
+ * @param	{String}	uri
  * @returns {JSON}		uriParser.prased|urlParse.u
  *		protocol	: "http:" | "https" | null ,
  *		slashes	    : true		| false,
@@ -68,64 +66,6 @@ const httpConfigParser = function (method, uriParser, params = null) {
 };
 
 /**
- * Main Function to be called for sending HTTP POST Request
- * 
- * {@link uriParser}
- * {@link httpConfigParser}
- * @callback callback
- * @param {String}		uri			HTTP Request URI
- * @param {JSON}		params		JSON Object that prased by url.js {@link url#parse(String)}
- * @param {callback}	callback	Callback Function Asynchronized function call
- * @param {Array}		args		Unhandled arguement array.
- */
-const _httpPost = function (uri, params = null, callback = function () { }, ...args) {
-    let parsedUri = uriParser(uri);
-    let config = httpConfigParser("POST", parsedUri, params);
-    let secure = false;
-    switch (parsedUri.protocol) {
-        case PROTOCOL_HTTP:
-            secure = false;
-            break;
-        case PROTOCOL_HTTPS:
-            secure = true;
-            break;
-        default:
-            callback({ err: "unSupported protocol of Untility" });
-            break;
-    }
-    httpRequest(config, secure, callback);
-};
-
-/**
- * Main Function to be called for sending HTTP GET Request
- * 
- * {@link uriParser}
- * {@link httpConfigParser}
- * @callback callback
- * @param {String}		uri				HTTP Request URI
- * @param {JSON}		params		    JSON Object that prased by url.js {@link url#parse(String)}
- * @param {callback}	callback	    Callback Function Asynchronized function call
- * @param {Array}		args			Unhandled arguement array.
- */
-const httpGet = function (uri, params = null, callback = function () { }, ...args) {
-    let parsedUri = uriParser(uri);
-    let config = httpConfigParser("GET", parsedUri, params);
-    let secure = false;
-    switch (parsedUri.protocol) {
-        case PROTOCOL_HTTP:
-            secure = false;
-            break;
-        case PROTOCOL_HTTPS:
-            secure = true;
-            break;
-        default:
-            callback({ err: "unSupported protocol of Untility" });
-            break;
-    }
-    httpRequest(config, secure, callback);
-};
-
-/**
  * @private
  * @callback			callback					
  * @param {JSON}		options			HTTP Request Config
@@ -156,10 +96,49 @@ const httpRequest = function (options, secure = false, callback) {
     }
 };
 
-
+/**
+ * Main Function to be called for sending HTTP GET Request
+ * 
+ * {@link uriParser}
+ * {@link httpConfigParser}
+ * @callback callback
+ * @param {String}		uri				HTTP Request URI
+ * @param {JSON}		params		    JSON Object that prased by url.js {@link url#parse(String)}
+ * @param {callback}	callback	    Callback Function Asynchronized function call
+ * @param {Array}		args			Unhandled arguement array.
+ */
 const _httpGet = function (uri, params = null, callback = function () { }, ...args) {
     let parsedUri = uriParser(uri);
     let config = httpConfigParser("GET", parsedUri, params);
+    let secure = false;
+    switch (parsedUri.protocol) {
+        case PROTOCOL_HTTP:
+            secure = false;
+            break;
+        case PROTOCOL_HTTPS:
+            secure = true;
+            break;
+        default:
+            callback({ err: "unSupported protocol of Untility" });
+            break;
+    }
+    httpRequest(config, secure, callback);
+};
+
+/**
+ * Main Function to be called for sending HTTP POST Request
+ * 
+ * {@link uriParser}
+ * {@link httpConfigParser}
+ * @callback callback
+ * @param {String}		uri			HTTP Request URI
+ * @param {JSON}		params		JSON Object that prased by url.js {@link url#parse(String)}
+ * @param {callback}	callback	Callback Function Asynchronized function call
+ * @param {Array}		args		Unhandled arguement array.
+ */
+const _httpPost = function (uri, params = null, callback = function () { }, ...args) {
+    let parsedUri = uriParser(uri);
+    let config = httpConfigParser("POST", parsedUri, params);
     let secure = false;
     switch (parsedUri.protocol) {
         case PROTOCOL_HTTP:

@@ -1,7 +1,9 @@
 const config = require('../../config.json').Currency.api.openexchangerates;
 const { httpGet, httpPost } = require('../HTTPService');
 const Logger = require('../Logger');
+
 /**
+ * Getting Current Exchange Rate by calling api of openexchangerates.org.
  * 
  * @param {string}      from        Base Currency
  * @param {string}      to          Target Currency
@@ -17,6 +19,8 @@ const _getCurrenyRate = function (from, to, callback = function () { }) {
 }
 
 /**
+ * Getting Historial Exchange Rate by calling api of openexchangerates.org,
+ * have to replace YYYY-MM-DD for the api
  * 
  * @param {string}      from        Base Currency
  * @param {string}      to          Target Currency
@@ -25,21 +29,28 @@ const _getCurrenyRate = function (from, to, callback = function () { }) {
  * @param {string}      date        Target Historical Date
  * @param {callback}    callback 
  */
-const _getHistorialRate = function (from, to, year, month, date, callback = function () { }) {
-    var api = `${config.uri}${config.historical}`;
-    api = api.replace("YYYY", year).replace("MM", month).replace("DD", date);
+const _getHistorialRate = function (from, to, date, callback = function () { }) {
+    Logger.debug(`Getting current Exchange Rate from ${from} to ${to} at ${date}`);
+    var api = `${config.uri}${config.historical}`.replace("YYYY-MM-DD", date);
     const params = { app_id: config.API_KEY, base: from };
     httpGet(api, params, function (data) {
-        callback(data);
+        callback(makeModel(from, to, data));
     });
 }
 
 /**
+ * Making response Model
  * 
  * @private
  * @param {string}  from 
  * @param {string}  to 
- * @param {JSOn}    data    
+ * @param {JSOn}    data    HTTP Request response data in form of {
+ *                                                                  "disclaimer": {string}, 
+ *                                                                  "license": {url},
+ *                                                                  "timestamp": {timestamp}
+ *                                                                  "base": {string},
+ *                                                                  "rates": {JSON Object}
+ *                                                                  }
  */
 const makeModel = function (from, to, data) {
     let result = [];

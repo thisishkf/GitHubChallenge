@@ -3,14 +3,11 @@
     <h3>Currenct Excahnge Rate</h3>
     <hr/>
 
+    <!-- Start of CUrrency Picker section -->
     <div class="row" id="currency_input">
         <div class="col-lg-3 col-md-4 col-xs-12">From
             <select id="currency-from">
-                <% Object.keys(data).forEach( key => { %>
-                    <option value="<%= key%>">
-                        <%=key%>
-                    </option>
-                    <% });%>
+                <option value="USD">USD</option>
             </select>
         </div>
         <div class="col-lg-1 col-md-1 col-xs-12">
@@ -20,7 +17,7 @@
         <div class="col-lg-3 col-md-4 col-xs-12">
             To
             <select id="currency-to">
-                <option value="all">All</option>
+                <option value="allCurrency">All Currency</option>
                 <% Object.keys(data).forEach( key => { %>
                     <option value="<%= key%>">
                         <%=key%>
@@ -29,24 +26,26 @@
             </select>
         </div>
     </div>
+    <!-- End of CUrrency Picker section -->
+    <br/>
+    <!-- Start of Date Picker section -->
     <div class="row">
-
-        <div class="col-lg-6 col-md-6 col-xs-12">
-            <div class="input-group date" data-provide="datepicker">
-                <input type="text" class="form-control">
+        <div class="col-lg-3 col-md-3 col-xs-12">
+            <div class="input-group input date" data-provide="datepicker">
+                Date 
+                <input id="currency-date" type="text" class="form-control" data-date-format="yyyy-dd-mm">
                 <div class="input-group-addon">
                     <span class="glyphicon glyphicon-th"></span>
                 </div>
             </div>
         </div>
         <div class="col-lg-2 col-md-2 col-xs-12" style="margin-top: 5px;">
-            <input type="button" class="btn-xs btn-info" value="Search" />
+            <input id="currency-ask" type="button" class="btn-xs btn-info" value="Search" />
         </div>
     </div>
-
+    <!-- End of Date Picker section -->
     <hr/>
-    <div id="currency_result">
-
-    </div>
+    <!-- Result Display section -->
+    <div id="currency_result"> </div>
 
 </div>
