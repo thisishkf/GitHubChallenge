@@ -1,5 +1,9 @@
 ## Project Background
 
+Key                 |   Value
+------------------- | ---------------------
+Author              |   Sam Ho <hkf1113@gmail.com>
+Submission Date     |   2018-05-14
 Technical spec      |   Back-end track
 Language            |   Node.js
 Problem             |   **Exchange Rate**
