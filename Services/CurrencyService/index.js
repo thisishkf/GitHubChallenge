@@ -1,7 +1,7 @@
 const openexchangeratesService = require('./openexchangeratesService');
 
 const currencyList = require('./currencies.json');
-const Logger = reuqire('../Logger');
+const Logger = require('../Logger');
 
 var service;
 
