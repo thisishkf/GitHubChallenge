@@ -39,6 +39,9 @@ const _getHistorialRate = function (from, to, date, callback = function () { }) 
         var api = `${config.uri}${config.historical}`.replace("YYYY-MM-DD", date);
         const params = { app_id: config.API_KEY, base: from };
         httpGet(api, params, function (data) {
+            if(!(to in data.rates)){
+                callback({ err: "Historial Exchange Rate has no data" });
+            }
             callback(makeModel(from, to, data));
         });
     } else {
