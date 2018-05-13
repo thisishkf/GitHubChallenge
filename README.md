@@ -7,7 +7,7 @@ Submission Date     |   2018-05-14
 Technical spec      |   Back-end track
 Language            |   Node.js
 Problem             |   **Exchange Rate**
-Production Link     |   
+Production Link     |   //TODO
 
 ### Requirement: 
 1. Create a **service** that gives the 
@@ -150,7 +150,7 @@ Currency codes can be lookup on https://github.com/thisishkf/GitHubChallenge/blo
 There is also `allCurrency` as an extra option for `to` to retrieve all currency exchange rate base on `from`.
 
 ##### Example
-/currency/api/current/USD/HKD
+/currency/api/current/USD/HKD //TODO
 
 **Result**
 ```
@@ -173,7 +173,7 @@ Currency codes can be lookup on https://github.com/thisishkf/GitHubChallenge/blo
 There is also `allCurrency` as an extra option for `to` to retrieve all currency exchange rate base on `from`.
 
 ##### Example
-/currency/api/historical/USD/GBP/2018-04-04
+/currency/api/historical/USD/GBP/2018-04-04 //TODO
 
 **Result**
 ```
