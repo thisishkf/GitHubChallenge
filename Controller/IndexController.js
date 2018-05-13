@@ -1,7 +1,7 @@
 'use strict';
 const express = require('express');
-const { _render, getmodel, makeAjax } = require('../lib/Helper');
-const Logger = require('../lib/Logger');
+const { _render, getmodel, makeAjax } = require( __dirname +'/../lib/Helper');
+const Logger = require( __dirname +'/../lib/Logger');
 
 var _router = express.Router();
 

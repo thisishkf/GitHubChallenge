@@ -1,9 +1,9 @@
 'use strict';
 const express = require('express');
-const { _render, getmodel, makeAjax } = require('../lib/Helper');
-const Logger = require('../lib/Logger');
+const { _render, getmodel, makeAjax } = require(__dirname + '/../lib/Helper');
+const Logger = require(__dirname + '/../lib/Logger');
 
-const currencyService = require('../Services/CurrencyService');
+const currencyService = require(__dirname + '/../Services/CurrencyService');
 const currencyList = currencyService.getCurrencyList();
 
 var _router = express.Router();

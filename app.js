@@ -8,9 +8,9 @@ const path = require('path');
 const bodyParser = require('body-parser');
 
 // User Generic Modules
-const config = require('./config');
-const Logger = require('./lib/Logger');
-const mongo = require('./lib/MongoService');
+const config = require(__dirname + '/config');
+const Logger = require(__dirname + '/lib/Logger');
+const mongo = require(__dirname + '/lib/MongoService');
 
 // use Middle-ware
 app.use(function (req, res, next) {
@@ -27,8 +27,8 @@ app.use('/static', express.static(__dirname + '/public/static'));
 
 // use controllers
 
-app.use('', require('./controller/IndexController'));
-app.use('/currency', require('./controller/CurrencyController'));
+app.use('', require(__dirname + '/controller/IndexController'));
+app.use('/currency', require(__dirname + '/controller/CurrencyController'));
 
 const port = process.env.PORT || config.PORT;
 server.listen(port, function () {

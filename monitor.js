@@ -1,6 +1,6 @@
 const child_process = require('child_process');
-const config = require('./config').process;
-const Logger = require('./lib/Logger');
+const config = require(__dirname + '/config').process;
+const Logger = require(__dirname + '/lib/Logger');
 var count = 0;
 
 const restart = function () {
@@ -22,7 +22,7 @@ const start = function (nodefile) {
 
 	proc.on('exit', function (code) {
 		Logger.info('child process exited with code ' + code);
-		delete(proc);
+		delete (proc);
 		if (++count <= config.max_restart) {
 			setTimeout(restart, config.timeout);
 		} else {
