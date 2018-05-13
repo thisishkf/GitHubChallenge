@@ -8,11 +8,11 @@ const _getmodel = function (title = "", script = []) {
 			},
 			script: script
 		},
-		menu: {
-			Currency: [
+		menu: [
 				{ title: 'Rates', uri: '/currency/', status: "active" },
-			]
-		},
+				{ title: 'Current Rates', uri: '/currency/current', status: "active" },
+				{ title: 'Historical Rate', uri: '/currency/historical', status: "active" }
+		],
 		main: {},
 		foot: { copyright: 'Copyright © 2018 Thisishkf. All rights reserved.' }
 	};
