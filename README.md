@@ -10,6 +10,7 @@ Technical spec      |   Back-end track
 Language            |   Node.js
 Problem             |   **Exchange Rate**
 Production Link     |   http://52.90.250.226:9999/
+Hosting Provider    |   Amazon Ec2 free-tier
 
 ### Requirement: 
 1. Create a **service** that gives the 
@@ -99,6 +100,13 @@ See lib/Logger.
 A simple monitor is included. <br/> 
 For personal use, we always use pm2 as it is well developed and widely used. <br/>
 However for some concerns for commercial use, generic monitor is better.
+
+### Network architecture
+**3-tier architecture**
+1. Presentation Layer: Client Side browser or API call
+2. Business Logic Layer : Node.js Server hosted on AWS
+3. Data Access Layer : Currrency-data provider and Mongo Database on mlab
+
 
 ## Limitation
 Free currency-data providers only provide limited service. <br/>
