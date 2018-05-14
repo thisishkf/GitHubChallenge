@@ -25,9 +25,10 @@ const _getCurrenyRate = function (from, to, callback = function () { }) {
 /**
  * Getting Historial Exchange Rate by calling api of openexchangerates.org,
  * have to replace YYYY-MM-DD for the api
+ * 
  * @callback callback
- * @param {string}      from        Base Currency
- * @param {string}      to          Target Currency
+ * @param {string}      from        Base currency code
+ * @param {string}      to          Target currency code
  * @param {string}      year        Target Historical Year
  * @param {string}      month       Target Historical Month
  * @param {string}      date        Target Historical Date
@@ -50,12 +51,15 @@ const _getHistorialRate = function (from, to, date, callback = function () { }) 
 }
 
 /**
+ * Test request date is 
+ * (1) in format YYYY-MM-DD
+ * (2) beofre today
+ * 
  * @private
- * @param {string}
- * @return {boolean} If historial date is valid
+ * @param   {string}    date    request date string
+ * @return  {boolean}           If historial date is valid
  */
 const testHistorialDate = function (date) {
-    console.log(date);
     let format = /^\d{4}-\d{2}-\d{2}$/.test(date);
     let today = (new Date()).getTime();
     let target = (new Date(date)).getTime();
@@ -66,8 +70,8 @@ const testHistorialDate = function (date) {
  * Making response Model
  * 
  * @private
- * @param {string}  from 
- * @param {string}  to 
+ * @param {string}  from    Base currency code
+ * @param {string}  to      Target currency code
  * @param {JSOn}    data    HTTP Request response data in form of {
  *                                                                  "disclaimer": {string}, 
  *                                                                  "license": {url},
