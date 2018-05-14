@@ -134,6 +134,47 @@ The API service now is developped as everyone can use. The service can be mis-us
 A API-token can be deliverd and require in the request uri. <br/>
 i.e. `/currency/api/current/:api-token/:from/:to` and `/currency/api/historical/:api-token/:from/:to/:date`
 
+## Production Test Log
+ubuntu@ip-172-31-24-214:~/GitHubChallenge$ npm test
+```
+> githubchallenge@0.0.1 test /home/ubuntu/GitHubChallenge
+> mocha
+
+
+
+  CurrencyService
+    ✓ contains config
+    _getService()
+ Mon 14 02:42:57 [4081][DEBUG]	 	CurrencyService.getService() returning openexchangeratesService
+      ✓ return a service
+ Mon 14 02:42:57 [4081][DEBUG]	 	CurrencyService.getService() returning openexchangeratesService
+ Mon 14 02:42:57 [4081][DEBUG]	 	Getting current Exchange Rate from USD to USD
+ Mon 14 02:42:57 [4081][DEBUG]	 	httpRequest openexchangerates.org/api/latest.json?app_id=972b78c45db448b29419fc73dd93a840&base=USD statusCode: 200
+      ✓ return service have getCurrenyRate()  (41ms)
+ Mon 14 02:42:57 [4081][DEBUG]	 	CurrencyService.getService() returning openexchangeratesService
+ Mon 14 02:42:57 [4081][DEBUG]	 	Getting current Exchange Rate from USD to USD at 2018-01-01
+2018-01-01
+ Mon 14 02:42:57 [4081][DEBUG]	 	httpRequest openexchangerates.org/api/historical/2018-01-01.json?app_id=972b78c45db448b29419fc73dd93a840&base=USD statusCode: 200
+      ✓ return service have getHistorialRate() 
+    _getCurrencyList()
+      ✓ return a json
+
+  openexchangeratesService
+ Mon 14 02:42:57 [4081][DEBUG]	 	httpRequest openexchangerates.org/api/latest.json?app_id=972b78c45db448b29419fc73dd93a840&base=USD statusCode: 200
+    ✓ API KEY is valid
+    _getCurrenyRate()
+ Mon 14 02:42:57 [4081][DEBUG]	 	Getting current Exchange Rate from USD to USD
+ Mon 14 02:42:57 [4081][DEBUG]	 	httpRequest openexchangerates.org/api/latest.json?app_id=972b78c45db448b29419fc73dd93a840&base=USD statusCode: 200
+      ✓ return a array
+    _getHistorialRate()
+ Mon 14 02:42:57 [4081][DEBUG]	 	Getting current Exchange Rate from USD to USD at 2018-01-01
+2018-01-01
+ Mon 14 02:42:57 [4081][DEBUG]	 	httpRequest openexchangerates.org/api/historical/2018-01-01.json?app_id=972b78c45db448b29419fc73dd93a840&base=USD statusCode: 200
+      ✓ return a array
+
+
+  8 passing (124ms)
+```
 ## API Guide
 This section is to provide user guide in using API service for getting currency exchange rate.
 
