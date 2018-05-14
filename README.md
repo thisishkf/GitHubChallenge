@@ -1,3 +1,5 @@
+# Github Challenge - AfterShip
+
 ## Project Background
 
 Key                 |   Value
@@ -134,13 +136,25 @@ The API service now is developped as everyone can use. The service can be mis-us
 A API-token can be deliverd and require in the request uri. <br/>
 i.e. `/currency/api/current/:api-token/:from/:to` and `/currency/api/historical/:api-token/:from/:to/:date`
 
+---
+
+4. Improvement of checking historial date. <br/>
+The Today's date is base on server time. Therefore user in different timezone may have liitle impact. <br/>
+Therefore, today's timestamp should send by client side or retrieving by express request object.
+```javascript
+const testHistorialDate = function (date) {
+    let format = /^\d{4}-\d{2}-\d{2}$/.test(date);
+    let today = (new Date()).getTime();
+    let target = (new Date(date)).getTime();
+    return today > target && format;
+}
+```
+
 ## Production Test Log
 ubuntu@ip-172-31-24-214:~/GitHubChallenge$ npm test
 ```
 > githubchallenge@0.0.1 test /home/ubuntu/GitHubChallenge
 > mocha
-
-
 
   CurrencyService
     ✓ contains config
@@ -158,7 +172,6 @@ ubuntu@ip-172-31-24-214:~/GitHubChallenge$ npm test
       ✓ return service have getHistorialRate() 
     _getCurrencyList()
       ✓ return a json
-
   openexchangeratesService
  Mon 14 02:42:57 [4081][DEBUG]	 	httpRequest openexchangerates.org/api/latest.json?app_id=972b78c45db448b29419fc73dd93a840&base=USD statusCode: 200
     ✓ API KEY is valid
@@ -168,10 +181,8 @@ ubuntu@ip-172-31-24-214:~/GitHubChallenge$ npm test
       ✓ return a array
     _getHistorialRate()
  Mon 14 02:42:57 [4081][DEBUG]	 	Getting current Exchange Rate from USD to USD at 2018-01-01
-2018-01-01
  Mon 14 02:42:57 [4081][DEBUG]	 	httpRequest openexchangerates.org/api/historical/2018-01-01.json?app_id=972b78c45db448b29419fc73dd93a840&base=USD statusCode: 200
       ✓ return a array
-
 
   8 passing (124ms)
 ```
