@@ -16,7 +16,6 @@ $(document).ready(function () {
                 $('#loadingDiv').show();
             },
             success(res) {
-                console.log(res);
                 if (res.r == true) {
                     showResult(date, res.data);
                 }else{
