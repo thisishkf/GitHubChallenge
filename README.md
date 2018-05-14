@@ -29,8 +29,8 @@ For web-ui, users can ask for
 - (2) historical exchange rate    at  `/currency/historical` (http://52.90.250.226:9999/currency/historical)
 
 For API, users can ask for
-- (1) latest exchange rate        at  `/currency/api/current/:from/:to`
-- (2) historical exchange rate    at  `/currency/api/historical/:from/:to/:date`
+- (1) latest exchange rate        at  `/currency/api/current/:from/:to` (eg. http://52.90.250.226:9999/currency/api/current/USD/HKD)
+- (2) historical exchange rate    at  `/currency/api/historical/:from/:to/:date` (eg. http://52.90.250.226:9999/currency/api/historical/USD/HKD/2018-01-01)
 - Please reference to `API Guide` section
 
 ### Coding level
