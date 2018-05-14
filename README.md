@@ -11,6 +11,8 @@ Language            |   Node.js
 Problem             |   **Exchange Rate**
 Production Link     |   http://52.90.250.226:9999/
 Hosting Provider    |   Amazon Ec2 free-tier
+Personal Github     |   https://github.com/thisishkf
+Resume              |   https://github.com/thisishkf/GitHubChallenge/blob/master/doc/Resume_HoKinFai_2018.pdf
 
 ### Requirement: 
 1. Create a **service** that gives the 
