@@ -25,8 +25,8 @@ Resume              |   https://github.com/thisishkf/GitHubChallenge/blob/master
 A Node.js application is created providing web-ui, and API service.
 
 For web-ui, users can ask for 
-- (1) latest exchange rate        at  `/currency/current`
-- (2) historical exchange rate    at  `/currency/historical`
+- (1) latest exchange rate        at  `/currency/current` (http://52.90.250.226:9999/currency/current)
+- (2) historical exchange rate    at  `/currency/historical` (http://52.90.250.226:9999/currency/historical)
 
 For API, users can ask for
 - (1) latest exchange rate        at  `/currency/api/current/:from/:to`
